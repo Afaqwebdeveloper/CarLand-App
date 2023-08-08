@@ -1,0 +1,11 @@
+{% extends 'CarLand/base.html' %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Logout</h1>
+    <p>You have been logged out successfully.</p>
+    <a class="btn btn-primary" href="{% url 'CarLand:home' %}">Back to Home</a>
+</div>
+{% endblock %}

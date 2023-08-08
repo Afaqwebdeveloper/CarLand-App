@@ -1,0 +1,11 @@
+{% extends 'CarLand/base.html' %}
+
+{% block title %}Used Cars Platform{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Welcome to CarLand</h1>
+    <p>This platform allows you to buy and sell used cars. Start exploring the latest ads or post your own ad today! Get your dream car now</p>
+    <a class="btn btn-primary" href="{% url 'CarLand:ad_list' %}">View Ads</a>
+</div>
+{% endblock %}

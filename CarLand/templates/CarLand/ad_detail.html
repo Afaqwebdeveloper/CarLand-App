@@ -1,0 +1,22 @@
+{% extends 'CarLand/base.html' %}
+
+{% block title %}Ad Detail{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ ad.title }}</h1>
+    <p>Brand: {{ ad.brand }}</p>
+    <p>Model: {{ ad.model }}</p>
+    <p>Year: {{ ad.year }}</p>
+    <p>Price: {{ ad.price }}</p>
+    {% if user.is_authenticated %}
+        <p>Contact: {{ ad.user.email }}</p>
+    {% else %}
+        <p>Log in to view contact</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
+

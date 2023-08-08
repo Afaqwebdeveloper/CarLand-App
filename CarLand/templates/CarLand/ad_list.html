@@ -1,0 +1,54 @@
+{% extends 'CarLand/base.html' %}
+
+{% block title %}Ads{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Ads</h1>
+
+    <form method="get" class="mb-4">
+        <label for="brand">Brand:</label>
+        <select name="brand">
+            <option value="">All</option>
+        
+        </select>
+
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <form method="get" class="mb-4">
+        <label for="sort_by">Sort By:</label>
+        <select name="sort_by">
+            <option value="">Default</option>
+            <option value="year">Year (Ascending)</option>
+            <option value="-year">Year (Descending)</option>
+            <option value="price">Price (Ascending)</option>
+            <option value="-price">Price (Descending)</option>
+            <option value="date_published">Date Published (Ascending)</option>
+            <option value="-date_published">Date Published (Descending)</option>
+        </select>
+        <button type="submit">Apply Sorting</button>
+    </form>
+
+    <div class="row">
+        {% for ad in ads %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ ad.title }}</h5>
+                    <p class="card-text">Brand: {{ ad.brand }}</p>
+                    <p class="card-text">Model: {{ ad.model }}</p>
+                    <p class="card-text">Year: {{ ad.year }}</p>
+                    <p class="card-text">Price: {{ ad.price }}</p>
+                    {% if contact_visible %}
+                        <p class="card-text">Contact: {{ ad.user.email }}</p>
+                    {% else %}
+                        <a href="{% url 'CarLand:login' %}" class="btn btn-primary">Login to see contact</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
